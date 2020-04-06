@@ -26,14 +26,14 @@ public class Main {
         
         String respuesta, respuesta2, respuesta3,respuesta4;
         
-        Hilo tarea1 = new Hilo("186.21.30.134");
+        Hilo tarea1 = new Hilo("192.168.0.12");
         Thread hilo = new Thread(tarea1);
         
-        Hilo tarea2 = new Hilo("200.73.236.129");
-        Thread hilo2 = new Thread(tarea2);
-        
-        Hilo tarea3 = new Hilo("201.241.93.153");
-        Thread hilo3 = new Thread(tarea3);
+//        Hilo tarea2 = new Hilo("200.73.236.129");
+//        Thread hilo2 = new Thread(tarea2);
+//        
+//        Hilo tarea3 = new Hilo("201.241.93.153");
+//        Thread hilo3 = new Thread(tarea3);
         // TODO code application logic here
         //Cliente Escucha =  new Cliente();
 //        int[] array1 = generarArreglo();
@@ -41,16 +41,16 @@ public class Main {
 //        int[] array3 = generarArreglo();
 
        hilo.start();
-       hilo2.start();
-       hilo3.start();
+//       hilo2.start();
+//       hilo3.start();
        
        hilo.join();
        //System.out.println("respuesta: " + tarea1.getSum());
         
-       hilo2.join();
+//       hilo2.join();
        //System.out.println("respuesta2: "+ tarea2.getSum());
-        
-       hilo3.join();
+//        
+//       hilo3.join();
        //System.out.println("respuesta3: "+ tarea3.getSum());
            
 //        respuesta = Escucha.main(array1,"186.21.30.134");

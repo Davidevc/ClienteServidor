@@ -14,10 +14,7 @@ public class Servidor {
         ServerSocket serverSocket = null;
         Socket socket = null;
         int[] peticion = null;
-        String respuesta = "Datos incorrectos";
-        String line = null;
-
-        int[] respuestaIntArray = null;
+        int respuesta = 0;
 
         try {
             System.out.println("Escuchando por el puerto 8000");
@@ -41,24 +38,21 @@ public class Servidor {
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
-                //
                 System.out.println("El mensaje que me envio el cliente es: " + Arrays.toString(peticion));
+                
                 //ENVIO DE INFORMACION POR EL SOCKET DEFINIDO 
                 DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
 
-                if (peticion != null) {
-                    
-                }
-
+                
                 MotorDeCalculo motor = new MotorDeCalculo();
                 try {
-                    respuesta = String.valueOf(motor.Sumar150(peticion));
+                    respuesta = motor.Sumar150(peticion);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                
                 System.out.println("El mensaje que le envio al cliente es: " + respuesta);
-                dos.writeUTF(respuesta);
+                dos.write(respuesta);
 
                 dos.close();
                 dis.close();

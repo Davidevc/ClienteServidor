@@ -27,7 +27,7 @@ public class Main {
         Cliente Escucha =  new Cliente();
         int respuesta;
         
-        Hilo tarea1 = new Hilo("192.168.0.12");
+        Hilo tarea1 = new Hilo("186.21.30.134");
         Thread hilo = new Thread(tarea1);
         
         Hilo tarea2 = new Hilo("200.73.236.129");

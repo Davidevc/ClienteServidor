@@ -26,16 +26,16 @@ public class Main {
         
         String respuesta, respuesta2, respuesta3,respuesta4;
         
-        Hilo tarea1 = new Hilo("186.21.30.134");
+        Hilo tarea1 = new Hilo("186.21.20.170");
         Thread hilo = new Thread(tarea1);
         
         Hilo tarea2 = new Hilo("200.73.236.129");
         Thread hilo2 = new Thread(tarea2);
         
-        Hilo tarea3 = new Hilo("201.241.93.153");
+        Hilo tarea3 = new Hilo("192.168.0.10");
         Thread hilo3 = new Thread(tarea3);
         // TODO code application logic here
-        //Cliente Escucha =  new Cliente();
+       
 //        int[] array1 = generarArreglo();
 //        int[] array2 = generarArreglo();
 //        int[] array3 = generarArreglo();
@@ -45,14 +45,18 @@ public class Main {
        hilo3.start();
        
        hilo.join();
-       //System.out.println("respuesta: " + tarea1.getSum());
+       System.out.println("respuesta: " + tarea1.getSum());
         
        hilo2.join();
-       //System.out.println("respuesta2: "+ tarea2.getSum());
+       System.out.println("respuesta2: "+ tarea2.getSum());
         
        hilo3.join();
-       //System.out.println("respuesta3: "+ tarea3.getSum());
+       System.out.println("respuesta3: "+ tarea3.getSum());
            
+       Cliente Escucha =  new Cliente();
+       int array[]= {tarea1.getSum(),tarea2.getSum(),tarea3.getSum()};
+       respuesta = Escucha.main(array,"192.168.0.10");
+       System.out.println("respuesta total: "+ respuesta);
 //        respuesta = Escucha.main(array1,"186.21.30.134");
 //        System.out.println("respuesta: "+respuesta);
 //        

@@ -27,13 +27,13 @@ public class Main {
         Cliente Escucha =  new Cliente();
         int respuesta;
         
-        Hilo tarea1 = new Hilo("186.21.30.134");
+        Hilo tarea1 = new Hilo("186.21.20.170");
         Thread hilo = new Thread(tarea1);
         
         Hilo tarea2 = new Hilo("200.73.236.129");
         Thread hilo2 = new Thread(tarea2);
         
-        Hilo tarea3 = new Hilo("201.241.93.153");
+        Hilo tarea3 = new Hilo("192.168.0.10");
         Thread hilo3 = new Thread(tarea3);
 
        hilo.start();

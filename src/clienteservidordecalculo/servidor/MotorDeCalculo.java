@@ -22,7 +22,7 @@ public class MotorDeCalculo {
         if (numeros.length != 0) {
             for (int i = 0; i < numeros.length; i++) {
             resultado = resultado + numeros[i];
-            TimeUnit.SECONDS.sleep(1);
+            //TimeUnit.SECONDS.sleep(1);
             }
         }
         

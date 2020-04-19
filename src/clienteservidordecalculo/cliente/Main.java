@@ -29,7 +29,7 @@ public class Main {
         
        Cliente Escucha =  new Cliente();
        
-       respuesta = Escucha.main(array,"192.168.0.10");
+       respuesta = Escucha.main(array,"192.168.0.12");
        System.out.println("respuesta total: "+ respuesta);
     }
     
@@ -37,8 +37,8 @@ public class Main {
             
         int[] resultado = new int[150];
         for (int i = 0; i < resultado.length; i++) {
-            int valorDado = (int) (Math.random()*10+1);
-            resultado[i] = valorDado;
+            //int valorDado = (int) (Math.random()*10+1);
+            resultado[i] = 1;//valorDado;
         }
         
         log.log(Level.INFO, "el arrelo generado es: "+ Arrays.toString(resultado));

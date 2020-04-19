@@ -48,21 +48,20 @@ public class Servidor {
                 DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
 
                 if (peticion.length == 150 || peticion.length == 100) {
-                   try {
-                    respuesta = motor.sumarYParticionar(peticion);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
-                } 
+                        try {
+                         respuesta = motor.sumarYParticionar(peticion);
+                     } catch (InterruptedException ex) {
+                         Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
+                     } 
+                }else{
+                
+                        try {
+                            respuesta = motor.Sumar(peticion);
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        System.out.println("El mensaje que le envio al cliente es: " + respuesta);
                 }
-
-                
-//                try {
-//                    respuesta = motor.Sumar(peticion);
-//                } catch (InterruptedException ex) {
-//                    Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//                System.out.println("El mensaje que le envio al cliente es: " + respuesta);
-                
                 
                 dos.write(respuesta);
                 dos.close();

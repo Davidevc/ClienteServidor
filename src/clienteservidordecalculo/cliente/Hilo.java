@@ -27,7 +27,7 @@ public class Hilo extends Thread    {
         Cliente Escucha =  new Cliente();
          int[] array1 = generarArreglo();
          String ip = this.getName();
-         respuesta = Integer.parseInt(Escucha.main(array1,ipRecibida));
+         respuesta = Escucha.main(array1,ipRecibida);
          System.out.println("respuesta "+ipRecibida+" es:"+respuesta);
     }
     

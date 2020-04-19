@@ -14,8 +14,7 @@ public class Servidor {
         ServerSocket serverSocket = null;
         Socket socket = null;
         int[] peticion = null;
-        String respuesta = "Datos incorrectos";
-        String line = null;
+        int respuesta = 0;
 
         int[] respuestaIntArray = null;
 
@@ -32,6 +31,7 @@ public class Servidor {
             try {
                 //SE CONECTA UN CLIENTE
                 socket = serverSocket.accept();
+                MotorDeCalculo motor = new MotorDeCalculo();
                 System.out.println("Se conecto un cliente: " + socket.getInetAddress().getHostName());
                 
                 //RECIBE EL OBJETO
@@ -47,19 +47,24 @@ public class Servidor {
                 //ENVIO DE INFORMACION POR EL SOCKET DEFINIDO 
                 DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
 
-                if (peticion != null) {
-                    
-                }
-
-                MotorDeCalculo motor = new MotorDeCalculo();
-                try {
-                    respuesta = String.valueOf(motor.Sumar150(peticion));
+                if (peticion.length == 150 || peticion.length == 100) {
+                   try {
+                    respuesta = motor.sumarYParticionar(peticion);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
+                } 
                 }
-                System.out.println("El mensaje que le envio al cliente es: " + respuesta);
-                dos.writeUTF(respuesta);
 
+                
+//                try {
+//                    respuesta = motor.Sumar(peticion);
+//                } catch (InterruptedException ex) {
+//                    Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//                System.out.println("El mensaje que le envio al cliente es: " + respuesta);
+                
+                
+                dos.write(respuesta);
                 dos.close();
                 dis.close();
                 socket = null;

@@ -24,7 +24,7 @@ public class Main {
     
     public static void main(String[] args) throws InterruptedException {
         
-        String respuesta;
+        int respuesta;
         int[] array = generarArreglo();
         
        Cliente Escucha =  new Cliente();

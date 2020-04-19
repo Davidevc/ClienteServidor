@@ -17,7 +17,13 @@ public class MotorDeCalculo {
         return a*b;
     }
 
-    public int Sumar150( int[] numeros) throws InterruptedException{
+    public int sumarYParticionar ( int[] numeros)throws InterruptedException{
+        int resultado = 0;
+        
+        return resultado;
+    }
+    
+    public int Sumar( int[] numeros) throws InterruptedException{
         int resultado = 0;
         if (numeros.length != 0) {
             for (int i = 0; i < numeros.length; i++) {

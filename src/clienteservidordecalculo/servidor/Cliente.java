@@ -1,5 +1,6 @@
-package clienteservidordecalculo.cliente;
+package clienteservidordecalculo.servidor;
 
+import clienteservidordecalculo.cliente.*;
 import java.net.*;
 import java.io.*;
 import java.util.Arrays;

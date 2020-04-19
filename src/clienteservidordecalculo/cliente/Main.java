@@ -42,6 +42,7 @@ public class Main {
         }
         
         log.log(Level.INFO, "el arrelo generado es: "+ Arrays.toString(resultado));
+        log.log(Level.INFO, "el largo del arrego es: "+ resultado.length);
         return resultado;
     }
 

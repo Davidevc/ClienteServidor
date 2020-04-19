@@ -53,6 +53,7 @@ public class Servidor {
                      } catch (InterruptedException ex) {
                          Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
                      } 
+                        System.out.println("El mensaje que le envio al cliente es: " + respuesta);
                 }else{
                 
                         try {

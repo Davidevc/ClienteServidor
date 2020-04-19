@@ -29,7 +29,7 @@ public class MotorDeCalculo {
                 for (int i = 0; i < 100; i++) {
                     nuevoArray[i] = numeros[i];
                 }
-            servidorIp = "192.168.0.12";
+            servidorIp = "201.241.93.153";
         }
         else if (numeros.length == 100) {
                 nuevoArray = new int[50];
@@ -39,10 +39,12 @@ public class MotorDeCalculo {
                 for (int i = 0; i < 50; i++) {
                     nuevoArray[i] = numeros[i];
                 }
-            servidorIp = "192.168.0.12";
+            servidorIp = "200.73.236.129";
         }
         respuesta = Escucha.main(nuevoArray,servidorIp);
-        resultado = +respuesta;
+        System.out.println("respuesta: " + respuesta);
+        resultado = resultado +respuesta;
+        System.out.println("resultado: " + resultado);
         return resultado;
     }
     

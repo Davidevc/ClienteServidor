@@ -21,30 +21,31 @@ public class MotorDeCalculo {
         String servidorIp = null;
         int respuesta = 0;
         
-        if (numeros.length == 150){
-                nuevoArray = new int[100];
-                for (int i = 100; i < 150; i++) {
-                    resultado = resultado + numeros[i];
-                    }
-                for (int i = 0; i < 100; i++) {
-                    nuevoArray[i] = numeros[i];
+                if (numeros.length == 150){
+                        nuevoArray = new int[100];
+
+                        for (int i = 0; i < 100; i++) {
+                            nuevoArray[i] = numeros[i];
+                        }
+                        for (int i = 100; i < 150; i++) {
+                            resultado = resultado + numeros[i];
+                            }
+                    //servidorIp = "201.241.93.153";
                 }
-            servidorIp = "201.241.93.153";
-        }
-        else if (numeros.length == 100) {
-                nuevoArray = new int[50];
-                for (int i = 50; i < 100; i++) {
-                    resultado = resultado + numeros[i];
-                    }
-                for (int i = 0; i < 50; i++) {
-                    nuevoArray[i] = numeros[i];
+                else if (numeros.length == 100) {
+                        nuevoArray = new int[50];
+                        for (int i = 0; i < 50; i++) {
+                            nuevoArray[i] = numeros[i];
+                        }
+                        for (int i = 50; i < 100; i++) {
+                            resultado = resultado + numeros[i];
+                            }
+                    //servidorIp = "200.73.236.129";
                 }
-            servidorIp = "200.73.236.129";
-        }
-        respuesta = Escucha.main(nuevoArray,servidorIp);
-        System.out.println("respuesta: " + respuesta);
+        //respuesta = Escucha.main(nuevoArray,servidorIp);
+        System.out.println("respuesta del servidor " + servidorIp + " es: " + respuesta);
         resultado = resultado +respuesta;
-        System.out.println("resultado: " + resultado);
+        System.out.println("resultado de la suma y lo que llega es: " + resultado);
         return resultado;
     }
     

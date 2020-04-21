@@ -6,6 +6,7 @@
 package clienteservidordecalculo.servidor;
 
 import java.util.concurrent.TimeUnit;
+import clienteservidordecalculo.servidor.Hilo;
 
 /**
  *
@@ -17,20 +18,20 @@ public class MotorDeCalculo {
     public int sumarYParticionar ( int[] numeros)throws InterruptedException{
         int resultado = 0;
         int[] nuevoArray= new int[0];
-        Cliente Escucha =  new Cliente();
         String servidorIp = null;
         int respuesta = 0;
         
                 if (numeros.length == 150){
                         nuevoArray = new int[100];
-
                         for (int i = 0; i < 100; i++) {
                             nuevoArray[i] = numeros[i];
                         }
+                        Hilo tarea1 = new Hilo("201.241.93.153", nuevoArray);
+                        Thread hilo = new Thread(tarea1);
+                        
                         for (int i = 100; i < 150; i++) {
                             resultado = resultado + numeros[i];
                             }
-                    //servidorIp = "201.241.93.153";
                 }
                 else if (numeros.length == 100) {
                         nuevoArray = new int[50];

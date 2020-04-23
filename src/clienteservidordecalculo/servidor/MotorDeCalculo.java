@@ -29,11 +29,11 @@ public class MotorDeCalculo {
                         Hilo tarea1 = new Hilo("201.241.93.153", nuevoArray);
                         Thread hilo = new Thread(tarea1);
                         hilo.start();
-                        hilo.join();
                         
                         for (int i = 100; i < 150; i++) {
                             resultado = resultado + numeros[i];
                             }
+                        hilo.join();
                         respuesta = tarea1.getSum();
                 }
                 else if (numeros.length == 100) {
@@ -44,11 +44,12 @@ public class MotorDeCalculo {
                         Hilo tarea1 = new Hilo("200.73.236.129", nuevoArray);
                         Thread hilo = new Thread(tarea1);
                         hilo.start();
-                        hilo.join();
+                        
                         
                         for (int i = 50; i < 100; i++) {
                             resultado = resultado + numeros[i];
                             }
+                        hilo.join();
                         respuesta = tarea1.getSum();
                 }
         System.out.println("respuesta del servidor " + servidorIp + " es: " + respuesta);

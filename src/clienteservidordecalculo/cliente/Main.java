@@ -29,7 +29,7 @@ public class Main {
         
        Cliente Escucha =  new Cliente();
        
-       respuesta = Escucha.main(array,"192.168.0.12");
+       respuesta = Escucha.main(array,"186.21.20.170");
        System.out.println("respuesta total: "+ respuesta);
     }
     

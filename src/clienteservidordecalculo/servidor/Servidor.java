@@ -2,6 +2,7 @@ package clienteservidordecalculo.servidor;
 
 import java.net.*;
 import java.io.*;
+import java.time.Clock;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,8 +14,9 @@ public class Servidor {
     public String conexion() {
         ServerSocket serverSocket = null;
         Socket socket = null;
-        int[] peticion = null;
-        int respuesta = 0;
+        String peticion = null;
+        String respuesta = null;
+        Clock clock = Clock.systemUTC();
 
         try {
             System.out.println("Escuchando por el puerto 8000");
@@ -32,27 +34,18 @@ public class Servidor {
                 System.out.println("Se conecto un cliente: " + socket.getInetAddress().getHostName());
                 
                 //RECIBE EL OBJETO
-                ObjectInputStream dis = new ObjectInputStream(socket.getInputStream());
-                try {
-                    peticion = (int[]) dis.readObject();
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                System.out.println("El mensaje que me envio el cliente es: " + Arrays.toString(peticion));
+                DataInputStream dis = new DataInputStream(socket.getInputStream());
+                peticion = dis.readUTF();
+                System.out.println("El mensaje que me envio el cliente es: " + peticion);
                 
                 //ENVIO DE INFORMACION POR EL SOCKET DEFINIDO 
                 DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
 
-                
-                MotorDeCalculo motor = new MotorDeCalculo();
-                try {
-                    respuesta = motor.Sumar150(peticion);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                System.out.println("La hora y fecha son :: " + clock.instant());
+                respuesta = clock.instant().toString();
                 
                 System.out.println("El mensaje que le envio al cliente es: " + respuesta);
-                dos.write(respuesta);
+                dos.writeUTF(respuesta);
 
                 dos.close();
                 dis.close();

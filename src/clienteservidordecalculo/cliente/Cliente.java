@@ -6,20 +6,21 @@ import java.util.Arrays;
 
 public class Cliente {
 
-    public int main(int numeros[], String sock) {
+    public String main(String sock) {
 
         Socket socket = null;
-        int respuesta = 0;
+        String respuesta = null;
+        String consulta= "¿Cual es la hora?";
 
         try {
             //System.out.println("Me conecto al puerto 8000 del servidor");
             socket = new Socket(sock, 8000);
            
             //System.out.println("Le envio mi peticion: " + b.toString(),c);
-            ObjectOutputStream dos = new ObjectOutputStream(socket.getOutputStream());
-            dos.writeObject(numeros);
+            DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
+            dos.writeUTF(sock);
             DataInputStream dis = new DataInputStream(socket.getInputStream());
-            respuesta = dis.read();
+            respuesta = dis.readUTF();
                   
             // System.out.println("El mensaje que me envio el servidor es: " + respuesta);
             dos.close();
